@@ -25,7 +25,7 @@ void studenten_feld_ausgeben(struct studenten_typ* feld, int feld_n, void (*ausg
 struct studenten_typ* kopiere_studenten_auf_heap(struct studenten_typ);
 int vgl_fkt_zeiger_matrikel_nr(
 	const void*v1_ptr, const void*v2_ptr);
-void die_Befreiungsarmee_des_Friedhofs(struct studenten_typ **studenten_array,int anzahl_der_Datenleichen);
+void die_Befreiungsarmee_des_Friedhofs(struct studenten_typ **studenten_array,int Leichen_Haufen);
 
 
 /**
@@ -368,11 +368,11 @@ int vgl_fkt_zeiger_matrikel_nr(const void*v1_ptr, const void*v2_ptr)
 	return matrikel_Nummer1 - matrikel_Nummer2;
 } // vgl_fkt_zeiger_matrikel_nr
 
-void die_Befreiungsarmee_des_Friedhofs(struct studenten_typ **studenten_array, int anzahl_der_Datenleichen) 
+void die_Befreiungsarmee_des_Friedhofs(struct studenten_typ **studenten_array, int Leichen_Haufen) 
 {
-	while (anzahl_der_Datenleichen != 0) 
+	while (Leichen_Haufen != 0) 
 	{
-		for (int i = 0; i < anzahl_der_Datenleichen; i++)
+		for (int i = 0; i < Leichen_Haufen; i++)
 		{
 			struct studenten_typ *student = studenten_array[i];
 			free(student->name.vorname_ptr);
@@ -382,7 +382,7 @@ void die_Befreiungsarmee_des_Friedhofs(struct studenten_typ **studenten_array, i
 
 
 
-		anzahl_der_Datenleichen = 0;
+		Leichen_Haufen = 0;
 	}
 }
 
